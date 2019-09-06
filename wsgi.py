@@ -21,11 +21,11 @@ def predict():
             json_ = request.json
             print('line2')
             print(json_)
-             print('line3')
+            print('line3')
             query = pd.get_dummies(pd.DataFrame(json_))
-             print('line4')
+            print('line4')
             query = query.reindex(columns=model_columns, fill_value=0)
-             print('line5')
+            print('line5')
 
             prediction = list(lr.predict(query))
 
