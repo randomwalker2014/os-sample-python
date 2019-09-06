@@ -7,7 +7,7 @@ import numpy as np
 # Your API definition
 application = Flask(__name__)
 
-@application.route('/predict', methods=['POST'])
+@application.route('/predict', methods=['GET','POST'])
 def predict():
     if lr:
         try:
