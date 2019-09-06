@@ -1,2 +1,6 @@
 gunicorn
 Flask
+numpy
+pandas
+traceback
+sklearn
