@@ -7,14 +7,13 @@ import numpy as np
 # Your API definition
 application = Flask(__name__)
 
+lr = joblib.load("./model/model.pkl") # Load "model.pkl"
+model_columns = joblib.load("./model/model_columns.pkl")
+print ('Model loaded')
+
 @application.route('/predict', methods=['GET','POST'])
 def predict():
     
-    lr = joblib.load("./model/model.pkl") # Load "model.pkl"
-    print ('Model loaded')
-    model_columns = joblib.load("./model/model_columns.pkl") # Load "model_columns.pkl"
-    print ('Model columns loaded')
-
     if lr:
         try:
             json_ = request.json
@@ -37,10 +36,5 @@ if __name__ == '__main__':
         port = int(sys.argv[1]) # This is for a command-line input
     except:
         port = 12345 # If you don't provide any port the port will be set to 12345
-
-    #lr = joblib.load("./model/model.pkl") # Load "model.pkl"
-    #print ('Model loaded')
-    #model_columns = joblib.load("./model/model_columns.pkl") # Load "model_columns.pkl"
-    #print ('Model columns loaded')
 
     application.run(port=port, debug=True)
