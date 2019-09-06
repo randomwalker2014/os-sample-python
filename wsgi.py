@@ -17,16 +17,10 @@ def predict():
 
     if lr:
         try:
-            print('line1')
             json_ = request.json
-            print('line2')
             print(json_)
-            print('line3')
             query = pd.get_dummies(pd.DataFrame(json_))
-            print('line4')
             query = query.reindex(columns=model_columns, fill_value=0)
-            print('line5')
-
             prediction = list(lr.predict(query))
 
             return jsonify({'prediction': str(prediction)})
