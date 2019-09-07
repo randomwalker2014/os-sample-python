@@ -7,8 +7,8 @@ import numpy as np
 # Your API definition
 application = Flask(__name__)
 
-lr = joblib.load("./model/model.pkl") # Load "model.pkl"
-model_columns = joblib.load("./model/model_columns.pkl")
+lr = joblib.load("/home/share/models/model.pkl") # Load "model.pkl"
+model_columns = joblib.load("/home/share/models/model_columns.pkl")
 print ('Model loaded')
 
 @application.route('/predict', methods=['GET','POST'])
